@@ -10,7 +10,8 @@ public class Coach {
 
     public Coach(CoachInfoDto coachInfoDto) {
         this.name = coachInfoDto.getName();
-        this.dislikeMenus = new CoachMenu(coachInfoDto.getDislikeMenus());
+//        this.dislikeMenus = new CoachMenu(coachInfoDto.getDislikeMenus());
         this.recommendMenus = new CoachMenu();
+        this.dislikeMenus = new CoachMenu();
     }
 }

@@ -1,10 +1,13 @@
 package menu.dto;
 
+import java.util.List;
+import java.util.Set;
+
 public class CoachInfoDto {
     private String name;
-    private String dislikeMenus;
+    private Set<String> dislikeMenus;
 
-    public CoachInfoDto(String name, String dislikeMenus) {
+    public CoachInfoDto(String name, Set<String> dislikeMenus) {
         this.name = name;
         this.dislikeMenus = dislikeMenus;
     }
@@ -13,7 +16,15 @@ public class CoachInfoDto {
         return name;
     }
 
-    public String getDislikeMenus() {
+    public Set<String> getDislikeMenus() {
         return dislikeMenus;
+    }
+
+    @Override
+    public String toString() {
+        return "CoachInfoDto{" +
+                "name='" + name + '\'' +
+                ", dislikeMenus=" + dislikeMenus +
+                '}';
     }
 }
