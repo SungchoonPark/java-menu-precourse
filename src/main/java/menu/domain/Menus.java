@@ -1,10 +1,13 @@
 package menu.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.EnumMap;
 import java.util.List;
 
 public class Menus {
     private static final EnumMap<Category, List<String>> menus = new EnumMap<>(Category.class);
+    private static final Integer FIRST_MENU = 0;
 
     static {
         menus.put(Category.JAPAN_FOOD, List.of("규동", "우동", "미소시루", "스시", "가츠동", "오니기리", "하이라이스", "라멘", "오코노미야끼"));
@@ -14,5 +17,11 @@ public class Menus {
         menus.put(Category.EUROPE_FOOD, List.of("라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"));
     }
 
+    public String pickRandomMenuByCategory(Category category) {
+        List<String> categoryMenus = menus.get(category);
+
+        List<String> randomMenus = Randoms.shuffle(categoryMenus);
+        return randomMenus.get(FIRST_MENU);
+    }
 
 }

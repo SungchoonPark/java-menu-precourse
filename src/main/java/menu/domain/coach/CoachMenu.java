@@ -13,4 +13,22 @@ public class CoachMenu {
     public CoachMenu() {
         coachMenus = new HashSet<>();
     }
+
+    public boolean isDislikeMenu(String menu) {
+        if (coachMenus.contains(menu)) return true;
+        return false;
+    }
+
+    public boolean isDuplicateMenu(String menu) {
+        if (coachMenus.contains(menu)) return true;
+        return false;
+    }
+
+    public void addMenu(String randomMenu) {
+        coachMenus.add(randomMenu);
+    }
+
+    public Set<String> getRecommendMenus() {
+        return coachMenus;
+    }
 }
