@@ -6,8 +6,8 @@ import java.util.Set;
 public class CoachMenu {
     private Set<String> coachMenus;
 
-    public CoachMenu(String dislikeMenus) {
-        this.coachMenus = coachMenus;
+    public CoachMenu(Set<String> dislikeMenus) {
+        this.coachMenus = dislikeMenus;
     }
 
     public CoachMenu() {

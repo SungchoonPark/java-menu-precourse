@@ -1,5 +1,7 @@
 package menu.domain;
 
+import menu.exception.ExceptionMessage;
+
 public enum Category {
     JAPAN_FOOD(1),
     KOREA_FOOD(2),
@@ -11,5 +13,13 @@ public enum Category {
 
     Category(int value) {
         this.value = value;
+    }
+
+    public static Category getCategoryByValue(int randomValue) {
+        for (Category category : Category.values()) {
+            if (category.value == randomValue) return category;
+        }
+
+        throw new IllegalArgumentException(ExceptionMessage.INVALID_COACH_NAME_LENGTH.getMessage());
     }
 }

@@ -1,6 +1,7 @@
 package menu.controller;
 
 import menu.NameValidator;
+import menu.domain.coach.Coach;
 import menu.dto.CoachInfoDto;
 import menu.exception.ExceptionMessage;
 import menu.service.MenuService;
@@ -24,12 +25,15 @@ public class MenuController {
         printStartMessage();
         List<String> coachNames = readCoachNames();
 
-        List<CoachInfoDto> coachInfoDtos = new ArrayList<>();
+        List<Coach> coaches = new ArrayList<>();
         for (String coachName : coachNames) {
             CoachInfoDto coachInfoDto = readDislikeMenuOfCoach(coachName);
             System.out.println(coachInfoDto);
-            coachInfoDtos.add(coachInfoDto);
+
+            coaches.add(new Coach(coachInfoDto));
         }
+
+        menuService.generateRecommendMenu(coaches);
 
     }
 
