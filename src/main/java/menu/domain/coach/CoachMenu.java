@@ -1,17 +1,18 @@
 package menu.domain.coach;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class CoachMenu {
-    private Set<String> coachMenus;
+    private LinkedHashSet<String> coachMenus;
 
-    public CoachMenu(Set<String> dislikeMenus) {
+    public CoachMenu(LinkedHashSet<String> dislikeMenus) {
         this.coachMenus = dislikeMenus;
     }
 
     public CoachMenu() {
-        coachMenus = new HashSet<>();
+        coachMenus = new LinkedHashSet<>();
     }
 
     public boolean isDislikeMenu(String menu) {
@@ -28,7 +29,7 @@ public class CoachMenu {
         coachMenus.add(randomMenu);
     }
 
-    public Set<String> getRecommendMenus() {
+    public LinkedHashSet<String> getRecommendMenus() {
         return coachMenus;
     }
 }

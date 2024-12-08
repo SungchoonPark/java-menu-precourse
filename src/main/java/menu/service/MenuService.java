@@ -6,10 +6,7 @@ import menu.domain.MenuRecommender;
 import menu.domain.coach.Coach;
 import menu.dto.RecommendResultDto;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class MenuService {
     private final MenuRecommender menuRecommender;
@@ -23,7 +20,7 @@ public class MenuService {
         List<Category> pickCategories = CategoryRecommender.generateWeekCategory();
 
         // Todo: 2. 해당 카테고리를 기준으로 각 요일별 각코치의 메뉴를 추천해줌.
-        Map<String, Set<String>> coachRecommendMenus = new HashMap<>();
+        LinkedHashMap<String, LinkedHashSet<String>> coachRecommendMenus = new LinkedHashMap<>();
         for (Category dayOfWeekCategory : pickCategories) {
 
             // 각 코치의 메뉴 추천하기

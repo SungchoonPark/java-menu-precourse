@@ -2,16 +2,22 @@ package menu.dto;
 
 import menu.domain.Category;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RecommendResultDto {
     private final List<Category> weekCategories;
-    private final Map<String, Set<String>> recommendMenus;
+    private final LinkedHashMap<String, LinkedHashSet<String>> recommendMenus;
 
-    public RecommendResultDto(List<Category> weekCategories, Map<String, Set<String>> recommendMenus) {
+    public RecommendResultDto(List<Category> weekCategories, LinkedHashMap<String, LinkedHashSet<String>> recommendMenus) {
         this.weekCategories = weekCategories;
         this.recommendMenus = recommendMenus;
+    }
+
+    public List<Category> getWeekCategories() {
+        return weekCategories;
+    }
+
+    public Map<String, LinkedHashSet<String>> getRecommendMenus() {
+        return recommendMenus;
     }
 }

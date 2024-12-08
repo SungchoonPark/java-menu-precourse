@@ -32,6 +32,11 @@ public class MenuController {
         }
 
         RecommendResultDto recommendResultDto = menuService.generateRecommendMenu(coaches);
+        printRecommendResult(recommendResultDto);
+    }
+
+    private void printRecommendResult(RecommendResultDto recommendResultDto) {
+        outputView.printResult(recommendResultDto);
     }
 
     private void printStartMessage() {
@@ -56,7 +61,7 @@ public class MenuController {
             try {
                 String dislikeMenus = inputView.readDislikeMenu(coachName);
                 String[] split = dislikeMenus.split(",");
-                Set<String> uniqueDislikeMenus = new HashSet<>();
+                LinkedHashSet<String> uniqueDislikeMenus = new LinkedHashSet<>();
                 for (String menu : split) {
                     if (uniqueDislikeMenus.contains(menu)) {
                         throw new IllegalArgumentException(ExceptionMessage.DUPLICATE_DISLIKE_MENU.getMessage());

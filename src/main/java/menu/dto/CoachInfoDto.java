@@ -1,13 +1,13 @@
 package menu.dto;
 
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class CoachInfoDto {
     private String name;
-    private Set<String> dislikeMenus;
+    private LinkedHashSet<String> dislikeMenus;
 
-    public CoachInfoDto(String name, Set<String> dislikeMenus) {
+    public CoachInfoDto(String name, LinkedHashSet<String> dislikeMenus) {
         this.name = name;
         this.dislikeMenus = dislikeMenus;
     }
@@ -16,7 +16,7 @@ public class CoachInfoDto {
         return name;
     }
 
-    public Set<String> getDislikeMenus() {
+    public LinkedHashSet<String> getDislikeMenus() {
         return dislikeMenus;
     }
 

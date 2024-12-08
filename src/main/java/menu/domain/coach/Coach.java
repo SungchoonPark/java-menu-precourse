@@ -2,6 +2,7 @@ package menu.domain.coach;
 
 import menu.dto.CoachInfoDto;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Coach {
@@ -32,7 +33,7 @@ public class Coach {
         return name;
     }
 
-    public Set<String> getRecommendMenu() {
+    public LinkedHashSet<String> getRecommendMenu() {
         return recommendMenus.getRecommendMenus();
     }
 }
