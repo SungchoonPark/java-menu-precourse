@@ -1,13 +1,11 @@
 package menu.domain.coach;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.Set;
 
 public class CoachMenu {
-    private LinkedHashSet<String> coachMenus;
+    private final LinkedHashSet<String> coachMenus;
 
-    public CoachMenu(LinkedHashSet<String> dislikeMenus) {
+    public CoachMenu(final LinkedHashSet<String> dislikeMenus) {
         this.coachMenus = dislikeMenus;
     }
 
@@ -16,13 +14,11 @@ public class CoachMenu {
     }
 
     public boolean isDislikeMenu(String menu) {
-        if (coachMenus.contains(menu)) return true;
-        return false;
+        return coachMenus.contains(menu);
     }
 
     public boolean isDuplicateMenu(String menu) {
-        if (coachMenus.contains(menu)) return true;
-        return false;
+        return coachMenus.contains(menu);
     }
 
     public void addMenu(String randomMenu) {

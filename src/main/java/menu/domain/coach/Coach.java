@@ -3,7 +3,6 @@ package menu.domain.coach;
 import menu.dto.CoachInfoDto;
 
 import java.util.LinkedHashSet;
-import java.util.Set;
 
 public class Coach {
     private final String name;

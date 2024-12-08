@@ -10,15 +10,18 @@ public class MenuRecommender {
     }
 
     public void recommendMenuByCoachInfo(Coach coach, Category dayOfWeekCategory) {
-        // 1. 랜덤하게 카테고리속 메뉴 뽑기
-        String randomMenu = menus.pickRandomMenuByCategory(dayOfWeekCategory);
+        String randomMenu = pickRandomMenuByCategory(dayOfWeekCategory);
+        checkValidRandomMenu(coach, dayOfWeekCategory, randomMenu);
+        coach.addRecommendMenu(randomMenu);
+    }
 
-        // 2. 해당 메뉴가 중복됐는지, 싫어하는 메뉴인지 확인하기
+    private String pickRandomMenuByCategory(Category dayOfWeekCategory) {
+        return menus.pickRandomMenuByCategory(dayOfWeekCategory);
+    }
+
+    private void checkValidRandomMenu(Coach coach, Category dayOfWeekCategory, String randomMenu) {
         if (coach.isDislikeMenu(randomMenu) || coach.isDuplicateMenu(randomMenu)) {
             recommendMenuByCoachInfo(coach, dayOfWeekCategory);
-            return;
         }
-
-        coach.addRecommendMenu(randomMenu);
     }
 }

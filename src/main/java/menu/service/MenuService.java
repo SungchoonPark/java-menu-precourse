@@ -16,23 +16,24 @@ public class MenuService {
     }
 
     public RecommendResultDto generateRecommendMenu(List<Coach> coaches) {
-        // Todo : 1. (월~금) 카테고리 생성하기
         List<Category> pickCategories = CategoryRecommender.generateWeekCategory();
 
-        // Todo: 2. 해당 카테고리를 기준으로 각 요일별 각코치의 메뉴를 추천해줌.
-        LinkedHashMap<String, LinkedHashSet<String>> coachRecommendMenus = new LinkedHashMap<>();
         for (Category dayOfWeekCategory : pickCategories) {
-
-            // 각 코치의 메뉴 추천하기
             for (Coach coach : coaches) {
                 menuRecommender.recommendMenuByCoachInfo(coach, dayOfWeekCategory);
             }
         }
 
+        return new RecommendResultDto(pickCategories, generateCoachRecommendMenus(coaches));
+    }
+
+    private LinkedHashMap<String, LinkedHashSet<String>> generateCoachRecommendMenus(List<Coach> coaches) {
+        LinkedHashMap<String, LinkedHashSet<String>> coachRecommendMenus = new LinkedHashMap<>();
+
         for (Coach coach : coaches) {
             coachRecommendMenus.put(coach.getName(), coach.getRecommendMenu());
         }
 
-        return new RecommendResultDto(pickCategories, coachRecommendMenus);
+        return coachRecommendMenus;
     }
 }

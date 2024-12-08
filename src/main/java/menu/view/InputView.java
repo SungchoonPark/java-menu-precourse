@@ -12,9 +12,6 @@ public class InputView {
         System.out.println(COACH_NAME_MESSAGE);
         String coachNames = Console.readLine();
         checkInputIsEmpty(coachNames);
-
-        // Todo: , 구분자가 사용되었는지 파악해야함.
-
         return coachNames;
     }
 

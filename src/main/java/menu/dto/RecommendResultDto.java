@@ -8,7 +8,10 @@ public class RecommendResultDto {
     private final List<Category> weekCategories;
     private final LinkedHashMap<String, LinkedHashSet<String>> recommendMenus;
 
-    public RecommendResultDto(List<Category> weekCategories, LinkedHashMap<String, LinkedHashSet<String>> recommendMenus) {
+    public RecommendResultDto(
+            final List<Category> weekCategories,
+            final LinkedHashMap<String, LinkedHashSet<String>> recommendMenus
+    ) {
         this.weekCategories = weekCategories;
         this.recommendMenus = recommendMenus;
     }
